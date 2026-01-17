@@ -4,65 +4,57 @@
 
 The Open AEC Foundation is dedicated to creating accessible, high-quality open source tools for the Architecture, Engineering, and Construction (AEC) industry. We believe in collaboration, transparency, and shared innovation.
 
-## Repository Overview
-
-We maintain **16 open source repositories** organized by category:
+## Our Projects
 
 ### BIM & Building Modeling
 
-| Repository | Description | Language | License |
-|------------|-------------|----------|---------|
-| [building.py](https://github.com/OpenAEC-Foundation/building.py) | Python library for creating buildings, building systems and objects. Export to Blender, Revit, IFC, Struct4U, DXF & Speckle. | Python | GPL-2.0 |
-| [INB-Template](https://github.com/OpenAEC-Foundation/INB-Template) | IFC-template for the Dutch construction sector with NEN47-compliant materials, steel profiles and building element types. | CSS | MIT |
+| Project | Vision & Application |
+|---------|---------------------|
+| [building.py](https://github.com/OpenAEC-Foundation/building.py) | Programmatically create building models and export to industry platforms like Blender, Revit, IFC, and Speckle. Automates repetitive design tasks for architects and engineers. |
+| [INB-Template](https://github.com/OpenAEC-Foundation/INB-Template) | Standardized IFC templates for the Dutch construction sector. Provides NEN47-compliant materials and building elements for consistent BIM workflows. |
 
 ### Viewers & Visualization
 
-| Repository | Description | Language | License |
-|------------|-------------|----------|---------|
-| [monty-IFC-viewer](https://github.com/OpenAEC-Foundation/monty-IFC-viewer) | Lightweight IFC model viewer. | HTML | - |
-| [CPT-viewer](https://github.com/OpenAEC-Foundation/CPT-viewer) | Viewer for CPT (Cone Penetration Test) files in GEF and BRO-xml format. | - | - |
-| [Open-2D-Studio](https://github.com/OpenAEC-Foundation/Open-2D-Studio) | Cross-platform PDF viewer built with .NET and Avalonia UI. | C# | MIT |
+| Project | Vision & Application |
+|---------|---------------------|
+| [monty-IFC-viewer](https://github.com/OpenAEC-Foundation/monty-IFC-viewer) | Lightweight, accessible IFC viewer. View BIM models without expensive software licenses. |
+| [CPT-viewer](https://github.com/OpenAEC-Foundation/CPT-viewer) | Visualize geotechnical soil investigation data (CPT). Essential for foundation engineering and site analysis. |
+| [Open-2D-Studio](https://github.com/OpenAEC-Foundation/Open-2D-Studio) | Cross-platform document viewer for reviewing technical drawings and specifications. |
 
 ### Data & Integration
 
-| Repository | Description | Language | License |
-|------------|-------------|----------|---------|
-| [Project-Ocondat](https://github.com/OpenAEC-Foundation/Project-Ocondat) | Open building data using WikiData and other data sources. Includes steel profiles, Eurocode standards and more. | Python | MIT |
-| [GIS2BIM-OpenAnalysis](https://github.com/OpenAEC-Foundation/GIS2BIM-OpenAnalysis) | GIS to BIM analysis and integration tools. | Python | - |
-| [IfcGit4NextCloud](https://github.com/OpenAEC-Foundation/IfcGit4NextCloud) | NextCloud add-on for IfcGit integration. | - | - |
+| Project | Vision & Application |
+|---------|---------------------|
+| [Project-Ocondat](https://github.com/OpenAEC-Foundation/Project-Ocondat) | Open building data repository. Centralizes steel profiles, Eurocode standards, and construction specifications from WikiData and other sources. |
+| [GIS2BIM-OpenAnalysis](https://github.com/OpenAEC-Foundation/GIS2BIM-OpenAnalysis) | Bridge geographic data with building models. Integrate terrain, infrastructure, and environmental data into BIM projects. |
+| [IfcGit4NextCloud](https://github.com/OpenAEC-Foundation/IfcGit4NextCloud) | Version control for IFC files within NextCloud. Track changes and collaborate on BIM models. |
 
-### Office & Productivity Tools
+### Office & Productivity
 
-| Repository | Description | Language | License |
-|------------|-------------|----------|---------|
-| [Open-PDF-Creator](https://github.com/OpenAEC-Foundation/Open-PDF-Creator) | Open source PDF printer/creator. | Python | MIT |
-| [Open-Report-Builder-Studio](https://github.com/OpenAEC-Foundation/Open-Report-Builder-Studio) | Tool/API to create complete engineering reports. Combines documents, drawings and PDFs. Integrated with AI and ERPNext. | - | - |
-| [Open-Calc](https://github.com/OpenAEC-Foundation/Open-Calc) | Open source cost estimation tool. | - | - |
+| Project | Vision & Application |
+|---------|---------------------|
+| [Open-PDF-Creator](https://github.com/OpenAEC-Foundation/Open-PDF-Creator) | Generate professional PDFs from technical documents and drawings. |
+| [Open-Report-Builder-Studio](https://github.com/OpenAEC-Foundation/Open-Report-Builder-Studio) | Create complete engineering reports by combining documents, calculations, and drawings. Integrated with AI and ERPNext for automation. |
+| [Open-Calc](https://github.com/OpenAEC-Foundation/Open-Calc) | Open source cost estimation for construction projects. Transparent pricing without vendor lock-in. |
 
 ### Scripts & Libraries
 
-| Repository | Description | Language | License |
-|------------|-------------|----------|---------|
-| [AEC-Scripts](https://github.com/OpenAEC-Foundation/AEC-Scripts) | Python scripts library for the AEC industry. | Python | MIT |
+| Project | Vision & Application |
+|---------|---------------------|
+| [AEC-Scripts](https://github.com/OpenAEC-Foundation/AEC-Scripts) | Ready-to-use scripts for common AEC workflows. Automate calculations, conversions, and data processing. |
 
-### Knowledge & Documentation
+### Knowledge Preservation
 
-| Repository | Description | Language | License |
-|------------|-------------|----------|---------|
-| [OpenBooks](https://github.com/OpenAEC-Foundation/OpenBooks) | Scanning and digitizing old architectural and construction books. | HTML | - |
+| Project | Vision & Application |
+|---------|---------------------|
+| [OpenBooks](https://github.com/OpenAEC-Foundation/OpenBooks) | Digitizing historical architectural and construction literature. Preserving building knowledge for future generations. |
 
 ### Infrastructure & Automation
 
-| Repository | Description | Language | License |
-|------------|-------------|----------|---------|
-| [nextcloud-talk-erp-next-bot](https://github.com/OpenAEC-Foundation/nextcloud-talk-erp-next-bot) | NextCloud Talk bot with ERPNext integration. | Python | - |
-| [NextCloud-Claude-Bot](https://github.com/OpenAEC-Foundation/NextCloud-Claude-Bot) | AI-powered Claude bot for NextCloud. | - | - |
-
-### Website
-
-| Repository | Description | Language | License |
-|------------|-------------|----------|---------|
-| [website](https://github.com/OpenAEC-Foundation/website) | Official website of the OpenAEC Foundation. | HTML | MIT |
+| Project | Vision & Application |
+|---------|---------------------|
+| [nextcloud-talk-erp-next-bot](https://github.com/OpenAEC-Foundation/nextcloud-talk-erp-next-bot) | Connect team communication with business processes. Chat-based access to ERPNext data. |
+| [NextCloud-Claude-Bot](https://github.com/OpenAEC-Foundation/NextCloud-Claude-Bot) | AI assistant integrated in NextCloud. Smart support for document management and workflows. |
 
 ---
 
