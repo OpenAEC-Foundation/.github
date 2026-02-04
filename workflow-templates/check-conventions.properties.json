@@ -1,5 +1,6 @@
 {
   "name": "OpenAEC Conventions Checker",
   "description": "Check repository naming and code conventions",
+  "iconName": "check-conventions",
   "categories": ["Code Quality"]
 }
