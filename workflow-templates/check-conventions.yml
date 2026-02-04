@@ -1,0 +1,35 @@
+name: Check Conventions
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout RepoCleaner
+        uses: actions/checkout@v4
+        with:
+          repository: OpenAEC-Foundation/RepoCleaner
+          path: repo-cleaner
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml
+
+      - name: Check this repository
+        working-directory: repo-cleaner
+        env:
+          GH_TOKEN: ${{ secrets.CONVENTION_ENFORCER_TOKEN }}
+        run: |
+          REPO_NAME="${{ github.event.repository.name }}"
+          python3 repo_conventions_enforcer.py --repo-naming --single-repo "$REPO_NAME"
