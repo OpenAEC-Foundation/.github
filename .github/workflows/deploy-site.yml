@@ -38,6 +38,10 @@ on:
         required: false
         type: string
         default: ""
+      rsync_excludes:
+        required: false
+        type: string
+        default: ""
     secrets:
       deploy_ssh_key:
         required: true
@@ -89,9 +93,21 @@ jobs:
 
       - name: Sync files to server
         run: |
+          EXCLUDE_ARGS=(
+            "--exclude=.git/"
+            "--exclude=.github/"
+          )
+
+          while IFS= read -r pattern; do
+            if [ -n "$pattern" ]; then
+              EXCLUDE_ARGS+=("--exclude=$pattern")
+            fi
+          done <<'EOF'
+          ${{ inputs.rsync_excludes }}
+          EOF
+
           rsync -az --delete \
-            --exclude='.git/' \
-            --exclude='.github/' \
+            "${EXCLUDE_ARGS[@]}" \
             -e "ssh -p ${{ inputs.deploy_port }}" \
             "${{ inputs.deploy_source }}/" \
             "${{ inputs.deploy_user }}@${{ inputs.deploy_host }}:${{ inputs.deploy_path }}/"
