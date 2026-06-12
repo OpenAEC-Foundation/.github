@@ -64,18 +64,18 @@ jobs:
     steps:
       - name: Check out repository
         if: ${{ inputs.checkout_sparse == '' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Check out repository (sparse)
         if: ${{ inputs.checkout_sparse != '' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           sparse-checkout: ${{ inputs.checkout_sparse }}
           sparse-checkout-cone-mode: false
 
       - name: Set up Node.js
         if: ${{ inputs.node_version != '' }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ inputs.node_version }}
 
@@ -159,7 +159,7 @@ jobs:
             "$STAGE_DIR/"
 
       - name: Upload deploy artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: site-build
           path: ${{ runner.temp }}/site
@@ -169,13 +169,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download deploy artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: site-build
           path: ${{ runner.temp }}/site
 
       - name: Start SSH agent
-        uses: webfactory/ssh-agent@v0.9.0
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.deploy_ssh_key }}
 
