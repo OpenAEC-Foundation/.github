@@ -54,13 +54,8 @@ permissions:
   contents: read
 
 jobs:
-  prepare:
+  deploy:
     runs-on: ubuntu-latest
-    outputs:
-      deploy_source: ${{ steps.resolve.outputs.deploy_source }}
-      site_hostname: ${{ steps.resolve.outputs.site_hostname }}
-      manage_nginx: ${{ steps.resolve.outputs.manage_nginx }}
-      cert_name: ${{ steps.resolve.outputs.cert_name }}
     steps:
       - name: Check out repository
         if: ${{ inputs.checkout_sparse == '' }}
@@ -158,22 +153,6 @@ jobs:
             "${{ steps.resolve.outputs.deploy_source }}/" \
             "$STAGE_DIR/"
 
-      - name: Upload deploy artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: site-build
-          path: ${{ runner.temp }}/site
-
-  deploy-server:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download deploy artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site-build
-          path: ${{ runner.temp }}/site
-
       - name: Start SSH agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -196,10 +175,10 @@ jobs:
             "${{ inputs.deploy_user }}@${{ inputs.deploy_host }}:${{ inputs.deploy_path }}/"
 
       - name: Ensure nginx site
-        if: ${{ needs.prepare.outputs.manage_nginx == 'true' }}
+        if: ${{ steps.resolve.outputs.manage_nginx == 'true' }}
         run: |
           ssh -p "${{ inputs.deploy_port }}" "${{ inputs.deploy_user }}@${{ inputs.deploy_host }}" \
-            "SITE_HOSTNAME='${{ needs.prepare.outputs.site_hostname }}' DEPLOY_PATH='${{ inputs.deploy_path }}' CERT_NAME='${{ needs.prepare.outputs.cert_name }}' bash -s" <<'EOF'
+            "SITE_HOSTNAME='${{ steps.resolve.outputs.site_hostname }}' DEPLOY_PATH='${{ inputs.deploy_path }}' CERT_NAME='${{ steps.resolve.outputs.cert_name }}' bash -s" <<'EOF'
           set -euo pipefail
 
           CONFIG_PATH="/etc/nginx/sites-available/$SITE_HOSTNAME"
